@@ -121,13 +121,14 @@ defmodule OpentelemetryReq do
 
   defp format_exception(_), do: ""
 
+  # https://opentelemetry.io/docs/specs/semconv/http/http-spans/#name
   defp span_name(request) do
     case request.options[:span_name] do
       nil ->
         method = http_method(request.method)
 
         case Req.Request.get_private(request, :path_params_template) do
-          nil -> "HTTP #{method}"
+          nil -> to_string(method)
           params_template -> "#{params_template}"
         end
 
