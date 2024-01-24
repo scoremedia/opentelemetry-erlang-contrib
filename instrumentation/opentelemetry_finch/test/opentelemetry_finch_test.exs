@@ -37,7 +37,7 @@ defmodule OpentelemetryFinchTest do
 
     assert_receive {:span,
                     span(
-                      name: "HTTP GET",
+                      name: "GET",
                       kind: :client,
                       attributes: attributes
                     )}
@@ -60,7 +60,7 @@ defmodule OpentelemetryFinchTest do
 
     assert_receive {:span,
                     span(
-                      name: "HTTP GET",
+                      name: "GET",
                       kind: :client,
                       status: {:status, :error, "connection refused"},
                       attributes: attributes

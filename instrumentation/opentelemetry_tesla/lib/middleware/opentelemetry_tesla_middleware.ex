@@ -47,9 +47,10 @@ defmodule Tesla.Middleware.OpenTelemetry do
     span_name_fun.(env)
   end
 
+  # https://opentelemetry.io/docs/specs/semconv/http/http-spans/#name
   defp get_span_name(env, _) do
     case env.opts[:path_params] do
-      nil -> "HTTP #{http_method(env.method)}"
+      nil -> to_string(http_method(env.method))
       _ -> URI.parse(env.url).path
     end
   end

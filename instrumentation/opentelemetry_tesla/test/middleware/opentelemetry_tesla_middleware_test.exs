@@ -88,7 +88,7 @@ defmodule Tesla.Middleware.OpenTelemetryTest do
       |> TestClient.client()
       |> TestClient.get()
 
-      assert_receive {:span, span(name: "HTTP GET", attributes: _attributes)}
+      assert_receive {:span, span(name: "GET", attributes: _attributes)}
     end
 
     test "uses custom span name when passed in middleware opts",
@@ -188,7 +188,7 @@ defmodule Tesla.Middleware.OpenTelemetryTest do
     |> TestClient.client()
     |> TestClient.get()
 
-    assert_receive {:span, span(name: "HTTP GET", attributes: _attributes)}
+    assert_receive {:span, span(name: "GET", attributes: _attributes)}
   end
 
   @error_codes [

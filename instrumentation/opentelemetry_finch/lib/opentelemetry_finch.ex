@@ -60,8 +60,9 @@ defmodule OpentelemetryFinch do
       Trace.http_status_code() => status
     }
 
+    # https://opentelemetry.io/docs/specs/semconv/http/http-spans/#name
     s =
-      OpenTelemetry.Tracer.start_span("HTTP #{meta.request.method}", %{
+      OpenTelemetry.Tracer.start_span(to_string(meta.request.method), %{
         start_time: start_time,
         attributes: attributes,
         kind: :client

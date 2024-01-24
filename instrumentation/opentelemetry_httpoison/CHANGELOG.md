@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+* Update default span names to `{method}` to match [OpenTelemetry Semantic Conventions HTTP span spec](https://opentelemetry.io/docs/specs/semconv/http/http-spans/#name)
+
 ## 1.3.0
 
 ### Changed
