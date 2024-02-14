@@ -1,11 +1,13 @@
 defmodule OpentelemetryDataloader.MixProject do
   use Mix.Project
 
+  @version "1.0.0"
+
   def project do
     [
       app: :opentelemetry_dataloader,
       description: "Trace Dataloader with OpenTelemetry.",
-      version: "1.0.0",
+      version: @version,
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -62,7 +64,7 @@ defmodule OpentelemetryDataloader.MixProject do
       {:ecto_sql, ">= 3.0.0", only: [:dev, :test]},
       {:postgrex, ">= 0.15.0", only: [:dev, :test]},
       {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
-      {:opentelemetry_process_propagator, "~> 0.2"}
+      {:opentelemetry_process_propagator, "~> 0.2.1"}
     ]
   end
 end
